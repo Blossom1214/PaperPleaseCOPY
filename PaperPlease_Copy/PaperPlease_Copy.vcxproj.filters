@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Manager">
+      <UniqueIdentifier>{12f5b4e1-09c6-4bb9-9487-6138913b036f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Render">
+      <UniqueIdentifier>{d9a3abb2-4e83-4584-943a-e7f0f920b275}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Resource">
+      <UniqueIdentifier>{8c660cbc-9d6a-4802-9f05-a645805b88eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\TransForm">
+      <UniqueIdentifier>{36c58a17-6f99-4588-ad80-9ad203bffae5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Render\Animation">
+      <UniqueIdentifier>{28c8e044-9e31-4005-a05b-9f43c44726f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Render\Animation\Policy">
+      <UniqueIdentifier>{138b8bdb-123f-46bf-9575-e4ded010a00f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Render\Layer">
+      <UniqueIdentifier>{115fd018-3139-4a23-94a4-680386d7070b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Render\Layer\Dynamic">
+      <UniqueIdentifier>{afbe7cfc-f170-4fc8-b20f-529cc5b534e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Render\Layer\Static">
+      <UniqueIdentifier>{29c10cfa-864f-4aec-818f-0c7d86220ac9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Resource\GameObject">
+      <UniqueIdentifier>{c06fab84-5058-45e6-bd7c-2cd611ce01d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Resource\GameObject\NPC">
+      <UniqueIdentifier>{b7bb3814-250f-4e44-814e-573dd0470568}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Resource\GameObject\NPC\Soldier">
+      <UniqueIdentifier>{9cc64654-29f5-40c6-84dc-ebc1cbfa5b47}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PaperPlease_Copy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderManager.h">
+      <Filter>Source Files\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleBufferManager.h">
+      <Filter>Source Files\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameRateManager.h">
+      <Filter>Source Files\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawCommand.h">
+      <Filter>Source Files\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Source Files\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="json.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageResource.h">
+      <Filter>Source Files\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="ConvertStr.h">
+      <Filter>Source Files\TransForm</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationManager.h">
+      <Filter>Source Files\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator.h">
+      <Filter>Source Files\Render\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="IPlaybackPolicy.h">
+      <Filter>Source Files\Render\Animation\Policy</Filter>
+    </ClInclude>
+    <ClInclude Include="LoopPolicy.h">
+      <Filter>Source Files\Render\Animation\Policy</Filter>
+    </ClInclude>
+    <ClInclude Include="OncePolicy.h">
+      <Filter>Source Files\Render\Animation\Policy</Filter>
+    </ClInclude>
+    <ClInclude Include="PingPongPolicy.h">
+      <Filter>Source Files\Render\Animation\Policy</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicVisualLayer.h">
+      <Filter>Source Files\Render\Layer\Dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticVisualLayer.h">
+      <Filter>Source Files\Render\Layer\Static</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticRenderCheckPoint.h">
+      <Filter>Source Files\Render\Layer\Static</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Source Files\Resource\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="PMath.h">
+      <Filter>Source Files\TransForm</Filter>
+    </ClInclude>
+    <ClInclude Include="NPCState.h">
+      <Filter>Source Files\Resource\GameObject\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="NpcObj.h">
+      <Filter>Source Files\Resource\GameObject\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="SoldierObj.h">
+      <Filter>Source Files\Resource\GameObject\NPC\Soldier</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PaperPlease_Copy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderManager.cpp">
+      <Filter>Source Files\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="DoubleBufferManager.cpp">
+      <Filter>Source Files\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameRateManager.cpp">
+      <Filter>Source Files\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawCommand.cpp">
+      <Filter>Source Files\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Source Files\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationManager.cpp">
+      <Filter>Source Files\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>Source Files\Render\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicVisualLayer.cpp">
+      <Filter>Source Files\Render\Layer\Dynamic</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticVisualLayer.cpp">
+      <Filter>Source Files\Render\Layer\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticRenderCheckPoint.cpp">
+      <Filter>Source Files\Render\Layer\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\Resource\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="NpcObj.cpp">
+      <Filter>Source Files\Resource\GameObject\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="SoldierObj.cpp">
+      <Filter>Source Files\Resource\GameObject\NPC\Soldier</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PaperPlease_Copy.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="PaperPlease_Copy.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\assets\resource_table.json">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

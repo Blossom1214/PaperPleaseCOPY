@@ -1,0 +1,17 @@
+# Visual Studio 관련
+.vs/
+*.suo
+*.user
+*.userosscache
+
+# 빌드 폴더 무시
+Debug/
+Release/
+x64/
+*.obj
+*.pdb
+*.idb
+*.ipch
+
+# 기타
+*.log
