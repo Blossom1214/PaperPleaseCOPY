@@ -11,6 +11,7 @@ public:
 	virtual void Render(Gdiplus::Graphics* g) override = 0;
 	void SetAnimator(std::unique_ptr<Animator> animator) { _animator = move(animator); }
 	Animator* GetAnimator() const { return _animator.get(); }
+	NPCState GetState()const { return _state; }
 protected:
 	//이동 함수
 	bool MoveTowardsTarget(float dt);

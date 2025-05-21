@@ -141,7 +141,9 @@
   <ItemGroup>
     <ClInclude Include="AnimationManager.h" />
     <ClInclude Include="Animator.h" />
+    <ClInclude Include="BaseScene.h" />
     <ClInclude Include="ConvertStr.h" />
+    <ClInclude Include="Define.h" />
     <ClInclude Include="DoubleBufferManager.h" />
     <ClInclude Include="DrawCommand.h" />
     <ClInclude Include="DynamicVisualLayer.h" />
@@ -152,6 +154,7 @@
     <ClInclude Include="IPlaybackPolicy.h" />
     <ClInclude Include="json.hpp" />
     <ClInclude Include="LoopPolicy.h" />
+    <ClInclude Include="MainGameScene.h" />
     <ClInclude Include="NpcObj.h" />
     <ClInclude Include="NPCState.h" />
     <ClInclude Include="OncePolicy.h" />
@@ -161,26 +164,33 @@
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="SceneType.h" />
     <ClInclude Include="SoldierObj.h" />
     <ClInclude Include="StaticRenderCheckPoint.h" />
     <ClInclude Include="StaticVisualLayer.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TitleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AnimationManager.cpp" />
     <ClCompile Include="Animator.cpp" />
+    <ClCompile Include="BaseScene.cpp" />
     <ClCompile Include="DoubleBufferManager.cpp" />
     <ClCompile Include="DrawCommand.cpp" />
     <ClCompile Include="DynamicVisualLayer.cpp" />
     <ClCompile Include="FrameRateManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="MainGameScene.cpp" />
     <ClCompile Include="NpcObj.cpp" />
     <ClCompile Include="PaperPlease_Copy.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SoldierObj.cpp" />
     <ClCompile Include="StaticRenderCheckPoint.cpp" />
     <ClCompile Include="StaticVisualLayer.cpp" />
+    <ClCompile Include="TitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="PaperPlease_Copy.rc" />

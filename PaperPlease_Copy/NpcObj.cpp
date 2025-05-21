@@ -36,7 +36,12 @@ void NpcObj::SetState(NPCState state)
 {
     _state = state;
 
-  
+    const AnimationSequence* seq = GetSequenceByState(state);
+    if (seq)
+    {
+        _animator->SetSequence(seq);
+        _animator->Play();
+    }
 }
 
 void NpcObj::SetDirection(bool right)

@@ -49,6 +49,9 @@
     <Filter Include="Source Files\Resource\GameObject\NPC\Soldier">
       <UniqueIdentifier>{9cc64654-29f5-40c6-84dc-ebc1cbfa5b47}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Scene">
+      <UniqueIdentifier>{248529e9-0e49-4b5a-871a-67dbc3f4b5ef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -129,6 +132,24 @@
     <ClInclude Include="SoldierObj.h">
       <Filter>Source Files\Resource\GameObject\NPC\Soldier</Filter>
     </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Source Files\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseScene.h">
+      <Filter>Source Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGameScene.h">
+      <Filter>Source Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>Source Files\TransForm</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScene.h">
+      <Filter>Source Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneType.h">
+      <Filter>Source Files\Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PaperPlease_Copy.cpp">
@@ -172,6 +193,18 @@
     </ClCompile>
     <ClCompile Include="SoldierObj.cpp">
       <Filter>Source Files\Resource\GameObject\NPC\Soldier</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Source Files\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseScene.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGameScene.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScene.cpp">
+      <Filter>Source Files\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

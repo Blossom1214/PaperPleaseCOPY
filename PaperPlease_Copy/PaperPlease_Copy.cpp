@@ -8,7 +8,10 @@
 #include "StaticRenderCheckPoint.h"
 #include "RenderManager.h"
 #include "ResourceManager.h"
+#include "SceneManager.h"
+#include "MainGameScene.h"
 #define MAX_LOADSTRING 100
+#include "Define.h"
 #include "SoldierObj.h"
 using namespace Gdiplus;
 // Global Variables:
@@ -21,13 +24,10 @@ ULONG_PTR gdiplusToken;
 DoubleBufferManager backBuffer;//더블버퍼링(백버퍼)
 HWND g_hWnd = nullptr;//핸들의 또다른이름이됨..
 FrameRateManager frameManager;
-std::vector<std::unique_ptr<SoldierObj>> testNpcs;
-void SpawnTestSoldier();//test
 // Forward declarations of functions included in this code module:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
-INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,
@@ -48,7 +48,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         return FALSE;
     }
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_PAPERPLEASECOPY));
-
+    //여기서 씬매니저 이니셜라이즈로 초기시작화면셋팅
+    auto& Scene = SceneManager::GetInstance();
     MSG msg;
     frameManager.Init(144);
     
@@ -63,17 +64,13 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
-       //이위치에서 업데이트를 받아야하는가?!(맞는거같긴한데... 어음...음..으?)
         backBuffer.Clear(Color(255,0,0,0));
         RECT clientRect;
         GetClientRect(g_hWnd, &clientRect);
         float sx = static_cast<float>(clientRect.right - clientRect.left) / RenderManager::BASE_WIDTH;
         float sy = static_cast<float>(clientRect.bottom - clientRect.top) / RenderManager::BASE_HEIGHT;
-        for (auto& npc : testNpcs)
-        {
-            npc->Update(frameManager.GetDeltaTime());
-            npc->Render(backBuffer.GetGraphics());
-        }
+        SceneManager::GetInstance().UpdateScene(frameManager.GetDeltaTime());
+        SceneManager::GetInstance().RenderScene();
         RenderManager::GetInstance().RenderAll(backBuffer.GetGraphics(), sx, sy);
         RenderManager::GetInstance().GetDynamicLayer().Clear();
         backBuffer.Present(g_hWnd);
@@ -149,10 +146,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    auto& resMgr = ResourceManager::GetInstance();
    resMgr.InitImgJson();
    resMgr.PreloadingImageJson();
-   InitStaticRenderLayer(resMgr.GetImageResource(L"CheckpointBack"));
-   InitStaticRenderLayer(resMgr.GetImageResource(L"BoothWall"));
-   InitStaticRenderLayer(resMgr.GetImageResource(L"Desk"));
-   SpawnTestSoldier();//test
+   SceneManager::GetInstance().RegisterScene(SceneType::MAINGAME, std::make_unique<MainGameScene>());
+   SceneManager::GetInstance().ChangeScene(SceneType::MAINGAME);
    return TRUE;
 }
 
@@ -171,23 +166,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     
     switch (message)
     {
-    case WM_COMMAND:
-        {
-            int wmId = LOWORD(wParam);
-            // Parse the menu selections:
-            switch (wmId)
-            {
-            case IDM_ABOUT:
-                DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-                break;
-            case IDM_EXIT:
-                DestroyWindow(hWnd);
-                break;
-            default:
-                return DefWindowProc(hWnd, message, wParam, lParam);
-            }
-        }
-        break;
     case WM_PAINT:
         {
               
@@ -205,34 +183,3 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     return 0;
 }
 
-// Message handler for about box.
-INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
-{
-    UNREFERENCED_PARAMETER(lParam);
-
-
-    switch (message)
-    {
-    case WM_INITDIALOG:
-        return (INT_PTR)TRUE;
-
-    case WM_COMMAND:
-        if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
-        {
-            EndDialog(hDlg, LOWORD(wParam));
-            return (INT_PTR)TRUE;
-        }
-        break;
-    }
-    return (INT_PTR)FALSE;
-}
-//test
-void SpawnTestSoldier()
-{
-    const AnimationSequence* seq = AnimationManager::GetInstance().Get(L"soldier", L"walk");
-    auto soldier = std::make_unique<SoldierObj>(L"soldier");
-    soldier->GetAnimator()->SetSequence(seq);
-    soldier->SetPosition({ 100.0f, 300.0f });
-    soldier->StartWalkingTo({ 600.0f, 100.0f });
-    testNpcs.emplace_back(std::move(soldier));
-}
