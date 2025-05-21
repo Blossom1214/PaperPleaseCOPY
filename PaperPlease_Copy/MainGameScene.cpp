@@ -14,20 +14,30 @@ void MainGameScene::Init()
     InitStaticRenderLayer(ResourceManager::GetInstance().GetImageResource(L"BoothWall"));
     InitStaticRenderLayer(ResourceManager::GetInstance().GetImageResource(L"Desk"));
     const AnimationSequence* seq = AnimationManager::GetInstance().Get(L"soldier", L"walk");
-    if (_DayCount == 1) {
-        auto soldier = std::make_unique<SoldierObj>(L"soldier");
+    if (_DayCount <= 2) {
+        auto soldier = make_unique<SoldierObj>(L"soldier");
         soldier->GetAnimator()->SetSequence(seq);
         soldier->SetPosition({ 1100.0f, -100.0f });
         soldier->StartWalkingTo({ 1100.0f, 100.0f });
-        _SoldierNpcs.emplace_back(std::move(soldier));
+        _SoldierNpcs.emplace_back(move(soldier));
     }
-    if (_DayCount == 2)
+    if (_DayCount == 3)
     {
-        auto soldier = std::make_unique<SoldierObj>(L"soldier");
-        soldier->GetAnimator()->SetSequence(seq);
-        soldier->SetPosition({ 1100.0f, -100.0f });
-        soldier->StartWalkingTo({ 1100.0f, 100.0f });
-        _SoldierNpcs.emplace_back(std::move(soldier));
+        for (int i = 0; i < 5; ++i) {
+            auto soldier = make_unique<SoldierObj>(L"soldier");
+            soldier->GetAnimator()->SetSequence(seq);
+            soldier->SetPosition({ 1100.0f, -100.0f });
+            if (i > 2)
+            {
+                soldier->SetPosition({ 275.0f, -100.0f });
+            }
+            _SoldierNpcs.emplace_back(move(soldier));
+        }
+        _SoldierNpcs[0]->StartWalkingTo({1100.0f, 100.0f});
+        _SoldierNpcs[1]->StartWalkingTo({1100.0f, 50.0f});
+        _SoldierNpcs[2]->StartWalkingTo({1100.0f, 150.0f});
+        _SoldierNpcs[3]->StartWalkingTo({275.0f, 100.0f});
+        _SoldierNpcs[4]->StartWalkingTo({275.0f, 50.0f});
     }
 }
 void MainGameScene::Update(float dt)

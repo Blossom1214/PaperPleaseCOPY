@@ -12,7 +12,7 @@ public:
     void AddDayCount() { _DayCount += 1; }
 private:
     std::vector<std::unique_ptr<SoldierObj>> _SoldierNpcs;
-    UINT _DayCount=1;
+    UINT _DayCount=2;
 };
 
 //메인 게임에 해당하는 씬구조를 작성해야만함...

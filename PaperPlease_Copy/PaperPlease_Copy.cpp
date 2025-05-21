@@ -49,7 +49,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     }
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_PAPERPLEASECOPY));
     //여기서 씬매니저 이니셜라이즈로 초기시작화면셋팅
-    auto& Scene = SceneManager::GetInstance();
+    auto& SceneMgr = SceneManager::GetInstance();
+    auto& renMgr = RenderManager::GetInstance();
     MSG msg;
     frameManager.Init(144);
     
@@ -57,7 +58,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     while (true)
     {
         frameManager.BeginFrame();
-        while (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
         {
             if (msg.message == WM_QUIT)
                 goto ExitLoop;
@@ -69,10 +70,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         GetClientRect(g_hWnd, &clientRect);
         float sx = static_cast<float>(clientRect.right - clientRect.left) / RenderManager::BASE_WIDTH;
         float sy = static_cast<float>(clientRect.bottom - clientRect.top) / RenderManager::BASE_HEIGHT;
-        SceneManager::GetInstance().UpdateScene(frameManager.GetDeltaTime());
-        SceneManager::GetInstance().RenderScene();
-        RenderManager::GetInstance().RenderAll(backBuffer.GetGraphics(), sx, sy);
-        RenderManager::GetInstance().GetDynamicLayer().Clear();
+        SceneMgr.UpdateScene(frameManager.GetDeltaTime());
+        SceneMgr.RenderScene();
+        renMgr.RenderAll(backBuffer.GetGraphics(), sx, sy);
+        renMgr.GetDynamicLayer().Clear();
         backBuffer.Present(g_hWnd);
         frameManager.EndFrame();
         
