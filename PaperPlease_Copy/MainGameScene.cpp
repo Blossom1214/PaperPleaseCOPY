@@ -18,7 +18,7 @@ void MainGameScene::Init()
         auto soldier = make_unique<SoldierObj>(L"soldier");
         soldier->GetAnimator()->SetSequence(seq);
         soldier->SetPosition({ 1100.0f, -100.0f });
-        soldier->StartWalkingTo({ 1100.0f, 100.0f });
+        soldier->StartWalkingTo({ 1100.0f, 100.0f },0.f);
         _SoldierNpcs.emplace_back(move(soldier));
     }
     if (_DayCount == 3)
@@ -33,11 +33,11 @@ void MainGameScene::Init()
             }
             _SoldierNpcs.emplace_back(move(soldier));
         }
-        _SoldierNpcs[0]->StartWalkingTo({1100.0f, 100.0f});
-        _SoldierNpcs[1]->StartWalkingTo({1100.0f, 50.0f});
-        _SoldierNpcs[2]->StartWalkingTo({1100.0f, 150.0f});
-        _SoldierNpcs[3]->StartWalkingTo({275.0f, 100.0f});
-        _SoldierNpcs[4]->StartWalkingTo({275.0f, 50.0f});
+        _SoldierNpcs[0]->StartWalkingTo({1100.0f, 90.0f},1.5f);
+        _SoldierNpcs[1]->StartWalkingTo({1100.0f, 40.0f},2.0f);
+        _SoldierNpcs[2]->StartWalkingTo({1100.0f, 140.0f},0.f);
+        _SoldierNpcs[3]->StartWalkingTo({275.0f, 100.0f},0.f);
+        _SoldierNpcs[4]->StartWalkingTo({275.0f, 50.0f},1.5f);
     }
 }
 void MainGameScene::Update(float dt)

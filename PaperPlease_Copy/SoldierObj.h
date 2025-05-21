@@ -11,10 +11,10 @@ public:
 
 	virtual void Update(float dt) override;
 	virtual void Render(Gdiplus::Graphics* g) override;
-	void StartWalkingTo(const Vector2& targetPos)
+	void StartWalkingTo(const Vector2& targetPos,float delay)
 	{
 		SetState(NPCState::WALKING);
-		BeginMove(targetPos);
+		BeginMove(targetPos, delay);
 	}
 protected:
 	//npc의 상태를 입력해주면 이제 그대로 시퀀스 키값을 반환해서 그 애니메이션을 애니메이터에게 넣게 되는과정

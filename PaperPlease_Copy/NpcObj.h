@@ -20,7 +20,7 @@ protected:
 	//오른쪽을 바라보는지?
 	void SetDirection(bool right);
 	/// 선형보간할 시작점의 위치를 초기화해주는 함수
-	void BeginMove(const Vector2& to);
+	void BeginMove(const Vector2& to, float delay);
 	// 시퀀스 선택
 	virtual const AnimationSequence* GetSequenceByState(NPCState state) const = 0;
 protected:
@@ -42,6 +42,8 @@ protected:
 	std::unique_ptr<Animator>			_animator;
 	//움직임의 여부
 	bool _moving = false;
+	// 실제 걷기 시작 여부
+	bool _moveStarted = false;
 	//딜레이타임
 	float _delayTime = 0.0f;
 	

@@ -11,6 +11,13 @@ bool NpcObj::MoveTowardsTarget(float dt)
     }
     //시간만큼 누적(경과시간)
     _elapsed += dt;
+    if (!_moveStarted && _elapsed >= _delayTime)
+    {
+        _elapsed = 0.0f;                   
+        _moveStarted = true;               
+    }
+    if (!_moveStarted)
+        return false;
     //속도와 시간을 곱하여서 현재까지 이동한 거리를 계산
     float traveled = _moveSpeed * _elapsed;
     //전채분의 현재 진행률을 계산하여 저장함 최소값은 0에서 최대값은 1 즉 1을 넘어가지않게 잡아주는 역할을함
@@ -23,12 +30,14 @@ bool NpcObj::MoveTowardsTarget(float dt)
     return(t >= 1.0f);
 
 }
-void NpcObj::BeginMove(const Vector2& to)
+void NpcObj::BeginMove(const Vector2& to,float delay)
 {
     //선형보간을위해 위치정보를 현재위치로 초기화 해주는함수
     _startPos = _position;
     _targetPos = to;
     _elapsed = 0.0f;
+    _delayTime = delay;
+    _moveStarted = false;
     _totalDistance = (_targetPos - _startPos).Length();
     _moving = true;
 }
