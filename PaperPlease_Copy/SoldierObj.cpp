@@ -31,7 +31,7 @@ void SoldierObj::Update(float dt)
 			if (MoveTowardsTarget(dt))
 			{
 				_moving = false;
-				SetState(NPCState::IDLE);//상태를 바꾸기만 했을뿐 사실 규정이나 이런게 바뀐게 아님
+				SetState(NPCState::IDLE);
 			}
 		}
 		break;

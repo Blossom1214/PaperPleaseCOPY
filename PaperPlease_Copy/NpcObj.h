@@ -42,6 +42,8 @@ protected:
 	std::unique_ptr<Animator>			_animator;
 	//움직임의 여부
 	bool _moving = false;
+	//딜레이타임
+	float _delayTime = 0.0f;
 	
 };
 	

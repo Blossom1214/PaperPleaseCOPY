@@ -13,6 +13,8 @@
 #define MAX_LOADSTRING 100
 #include "Define.h"
 #include "SoldierObj.h"
+#define _CRTDBG_MAP_ALLOC
+#include <crtdbg.h>
 using namespace Gdiplus;
 // Global Variables:
 
@@ -35,6 +37,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_ int       nCmdShow)
 {
 
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
     GdiplusStartupInput gdiInput;
     GdiplusStartup(&gdiplusToken, &gdiInput, nullptr);
     // Initialize global strings
